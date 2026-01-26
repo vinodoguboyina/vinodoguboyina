@@ -84,11 +84,46 @@ const Home = () => {
     alignItems: 'center',
     gap: '8px',
     fontFamily: 'Arial, sans-serif',
-    zIndex: 10
+    zIndex: 10,
+    animation: 'bounce 2s infinite'
+  };
+
+  const arrowStyle = {
+    fontSize: isMobile ? '18px' : '22px',
+    animation: 'pulse 1.5s infinite',
+    display: 'inline-block'
   };
 
   return (
     <div style={containerStyle}>
+      <style>{`
+        @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% {
+            transform: ${isMobile ? 'translateX(-50%)' : 'none'} translateY(0);
+          }
+          40% {
+            transform: ${isMobile ? 'translateX(-50%)' : 'none'} translateY(-10px);
+          }
+          60% {
+            transform: ${isMobile ? 'translateX(-50%)' : 'none'} translateY(-5px);
+          }
+        }
+        
+        @keyframes pulse {
+          0% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          50% {
+            opacity: 0.6;
+            transform: translateY(3px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
       <img
         src={videounscreen}
         alt="Portfolio animation"
@@ -96,13 +131,13 @@ const Home = () => {
       />
 
       <div style={textContainerStyle}>
-        <div style={yearTextStyle}>2025</div>
+        <div style={yearTextStyle}>2026</div>
         <div style={portfolioTextStyle}>Portfolio</div>
       </div>
 
       <div style={feedStyle}>
         Feed
-        <span style={{ fontSize: isMobile ? '12px' : '14px' }}>↓</span>
+        <span style={arrowStyle}>↓</span>
       </div>
     </div>
   );

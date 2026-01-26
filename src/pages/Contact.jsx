@@ -125,22 +125,7 @@ const Contact = () => {
               GitHub
             </a>
           </div>
-          <div style={{ marginBottom: isMobile ? '15px' : '20px' }}>
-            <a 
-              href="https://vinodoguboyina.github.io" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ 
-                color: '#fff', 
-                fontSize: isMobile ? '24px' : isTablet ? '30px' : '36px',
-                textDecoration: 'none',
-                display: 'block',
-                marginBottom: isMobile ? '8px' : '12px'
-              }}
-            >
-              Portfolio
-            </a>
-          </div>
+         
           <div>
             <a 
               href="https://web-aura.github.io" 
@@ -207,7 +192,7 @@ const Contact = () => {
           margin: 0,
           fontWeight: 'bold'
         }}>
-          Don't be a jerk & steal my work
+          Thank you for visiting my creative space
         </p>
         
         <p style={{

@@ -7,17 +7,22 @@ import {
   FaMobile, 
   FaDocker, 
   FaGit, 
-  FaBluetooth 
+  FaBluetooth,
+  FaAws
 } from 'react-icons/fa';
 import { 
   SiFastapi, 
   SiPostgresql, 
+  SiMysql,
   SiPostman, 
   SiAndroid, 
   SiIos,
   SiHtml5,
   SiCss3,
-  SiJavascript
+  SiJavascript,
+  SiKubernetes,
+  SiGitlab,
+  SiNginx
 } from 'react-icons/si';
 import { TbTestPipe } from 'react-icons/tb';
 
@@ -35,14 +40,21 @@ const Profile = () => {
 
   const experience = [
     {
-      title: 'Full Stack Software Engineer',
+      title: 'Project Associate - 1',
+      company: 'Central Manufacturing Technology Institute (CMTI)',
+      period: 'Dec 2025 - Present',
+      type: 'FULL TIME',
+      duration: 'Ongoing'
+    },
+    {
+   
       company: 'Central Manufacturing Technology Institute (CMTI)',
       period: 'Jul 2025 - Nov 2025',
       type: 'GRADUATE APPRENTICE',
       duration: '4 Months'
     },
     {
-      title: 'Software Engineer Intern',
+    
       company: 'Central Manufacturing Technology Institute (CMTI)',
       period: 'Jan 2025 - Jul 2025',
       type: 'INTERNSHIP',
@@ -75,7 +87,8 @@ const Profile = () => {
       category: 'Database', 
       icon: <FaDatabase />,
       skills: [
-        { name: 'PostgreSQL', icon: <SiPostgresql /> }
+        { name: 'PostgreSQL', icon: <SiPostgresql /> },
+        { name: 'MySQL', icon: <SiMysql /> }
       ] 
     },
     { 
@@ -86,16 +99,23 @@ const Profile = () => {
         { name: 'Cross-Browser Testing', icon: <TbTestPipe /> },
         { name: 'Load Testing', icon: <TbTestPipe /> },
         { name: 'API Testing (Postman)', icon: <SiPostman /> },
-        { name: 'Functional Testing', icon: <TbTestPipe /> },
-        { name: 'UAT', icon: <TbTestPipe /> }
       ] 
     },
+   
     { 
-      category: 'Cloud & Tools', 
-      icon: <FaDocker />,
+      category: 'DevOps & Cloud', 
+      icon: <FaAws />,
       skills: [
+        { name: 'AWS', icon: <FaAws /> },
         { name: 'Docker', icon: <FaDocker /> },
-        { name: 'Git', icon: <FaGit /> }
+        { name: 'Kubernetes', icon: <SiKubernetes /> },
+        { name: 'CI/CD', icon: <FaGit /> },
+        { name: 'GitLab', icon: <SiGitlab /> },
+        { name: 'Nginx', icon: <SiNginx /> },
+        { name: 'AWS RDS', icon: <FaAws /> },
+        { name: 'EC2', icon: <FaAws /> },
+        { name: 'ECR', icon: <FaAws /> },
+        { name: 'ECS', icon: <FaAws /> }
       ] 
     },
     { 
@@ -396,9 +416,7 @@ const Profile = () => {
               fontSize: isMobile ? '13px' : isTablet ? '14px' : '16px',
               margin: '0 0 10px 0'
             }}>
-              <a href="https://vinodoguboyina.github.io" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none' }}>
-                vinodoguboyina.github.io
-              </a>
+             
             </p>
             <p style={{ 
               color: '#666', 

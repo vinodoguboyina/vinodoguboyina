@@ -23,8 +23,7 @@ const Work = () => {
     {
       title: 'Toolcrib Management System',
       company: 'Central Manufacturing Technology Institute (CMTI)',
-      role: 'Full Stack Software Engineer',
-      period: '2025 - Testing Phase',
+      period: '2025 - Completed',
       image: toolcrib,
       description: 'Engineered and maintained robust, enterprise-level tool management system with 43 distinct user roles and comprehensive permission management. Designed and implemented scalable backend architecture using Python FastAPI with PostgreSQL.',
       tags: ['React', 'Python', 'FastAPI', 'PostgreSQL', 'Manual Testing', 'Load Testing'],
@@ -33,7 +32,6 @@ const Work = () => {
     {
       title: 'Statistical Process Control (SPC) Platform',
       company: 'Tesa India',
-      role: 'Software Engineer',
       period: '2025 - Completed',
       image: spc,
       description: 'Developed comprehensive full-stack SPC software for industrial quality management with complex data processing capabilities. Built high-performance frontend using React with interactive data visualization and real-time chart rendering.',
@@ -43,7 +41,6 @@ const Work = () => {
     {
       title: 'Logistics Management System',
       company: 'Buhler Group',
-      role: 'Mobile Application Developer',
       period: '2025 - Completed',
       image: buhler,
       description: 'Developed enterprise-grade mobile application for logistics operations using React Native. Implemented complex algorithms for route optimization and real-time GPS tracking with high-performance requirements.',
@@ -52,9 +49,8 @@ const Work = () => {
     },
     {
       title: 'Inspect Pro',
-      company: 'Personal Project',
-      role: 'Mobile Application Developer',
-      period: '2025',
+      company: 'Central Manufacturing Technology Institute (CMTI)',
+      period: '2025 - Completed',
       image: inspectpro,
       description: 'Architected sophisticated mobile application handling concurrent connections to 20+ Bluetooth Low Energy devices. Developed hybrid data processing system combining automated sensor data with manual inspection entries.',
       tags: ['React Native', 'Bluetooth Low Energy', 'Data Processing', 'Automation'],
@@ -63,7 +59,6 @@ const Work = () => {
     {
       title: 'AgroVista',
       company: 'Academic Project',
-      role: 'Full Stack Developer',
       period: '2024',
       image: agrovista,
       description: 'Engineered comprehensive full-stack e-commerce platform with complex business logic and real-time data processing. Developed scalable frontend using React.js with advanced search functionality and secure payment integration.',
@@ -73,7 +68,6 @@ const Work = () => {
     {
       title: 'Web Aura Startup',
       company: 'Founder',
-      role: 'Full Stack Developer & Entrepreneur',
       period: '2025 - Present',
       image: webaura,
       description: 'Founded startup focused on delivering custom web and mobile solutions. Building innovative products using modern tech stack.',
@@ -187,15 +181,6 @@ const Work = () => {
               }}>
                 {project.title}
               </h3>
-
-              <p style={{ 
-                color: '#666', 
-                fontSize: isMobile ? '13px' : isTablet ? '14px' : '15px',
-                fontWeight: '300',
-                margin: '0 0 12px 0'
-              }}>
-                {project.role}
-              </p>
 
               <p style={{ 
                 color: '#999', 
