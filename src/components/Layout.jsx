@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { FiMoon, FiSun } from 'react-icons/fi';
+import { useTheme } from '../context/ThemeContext';
 
 const Layout = ({ children }) => {
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,19 +49,19 @@ const Layout = ({ children }) => {
     justifyContent: 'space-between',
     padding: isMobile ? '0 20px' : isTablet ? '0 35px' : '0 50px',
     zIndex: 1000,
-    background: 'rgba(0, 0, 0, 0.95)',
+    background: 'var(--header-bg)',
     backdropFilter: 'blur(10px)',
-    borderBottom: isMobile ? '1px solid #222' : 'none'
+    borderBottom: isMobile ? '1px solid var(--border)' : 'none'
   };
 
   const logoStyle = {
     width: isMobile ? '24px' : '28px',
     height: isMobile ? '24px' : '28px',
-    border: '2px solid #fff',
+    border: '2px solid var(--text)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: '#fff',
+    color: 'var(--text)',
     fontSize: isMobile ? '14px' : '16px',
     fontWeight: '600',
     flexShrink: 0
@@ -68,7 +71,7 @@ const Layout = ({ children }) => {
     position: isMobile ? 'relative' : 'absolute',
     left: isMobile ? 'auto' : '50%',
     transform: isMobile ? 'none' : 'translateX(-50%)',
-    color: 'rgba(255, 255, 255, 0.3)',
+    color: 'var(--name-fade)',
     fontSize: isMobile ? '11px' : isTablet ? '14px' : '16px',
     fontWeight: '400',
     letterSpacing: isMobile ? '0.5px' : '1px',
@@ -91,8 +94,23 @@ const Layout = ({ children }) => {
   const hamburgerLineStyle = {
     width: '22px',
     height: '2px',
-    background: '#fff',
+    background: 'var(--text)',
     transition: 'all 0.3s ease'
+  };
+
+  const themeButtonStyle = {
+    width: isMobile ? '34px' : '38px',
+    height: isMobile ? '34px' : '38px',
+    borderRadius: '50%',
+    border: '1px solid var(--toggle-border)',
+    background: 'transparent',
+    color: 'var(--text)',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+    padding: 0,
+    flexShrink: 0
   };
 
   const mobileMenuStyle = {
@@ -100,14 +118,14 @@ const Layout = ({ children }) => {
     top: isMobile ? '60px' : '80px',
     left: 0,
     right: 0,
-    background: 'rgba(0, 0, 0, 0.98)',
+    background: 'var(--menu-bg)',
     backdropFilter: 'blur(20px)',
     padding: '30px 20px',
     display: menuOpen ? 'flex' : 'none',
     flexDirection: 'column',
     gap: '25px',
     zIndex: 999,
-    borderBottom: '1px solid #222'
+    borderBottom: '1px solid var(--border)'
   };
 
   const desktopNavStyle = {
@@ -117,7 +135,7 @@ const Layout = ({ children }) => {
   };
 
   const navLinkStyle = (isActive) => ({
-    color: '#fff',
+    color: 'var(--text)',
     textDecoration: 'none',
     fontSize: isMobile ? '18px' : isTablet ? '14px' : '16px',
     fontWeight: isActive ? '500' : '400',
@@ -135,7 +153,7 @@ const Layout = ({ children }) => {
   const eyeStyle = {
     width: isTablet ? '18px' : '20px',
     height: isTablet ? '18px' : '20px',
-    background: '#fff',
+    background: 'var(--eye-bg)',
     borderRadius: '50%',
     display: 'flex',
     alignItems: 'center',
@@ -145,7 +163,7 @@ const Layout = ({ children }) => {
   const pupilStyle = (pos) => ({
     width: isTablet ? '5px' : '6px',
     height: isTablet ? '5px' : '6px',
-    background: '#000',
+    background: 'var(--eye-pupil)',
     borderRadius: '50%',
     transform: `translate(${pos.x}px, ${pos.y}px)`,
     transition: 'transform 0.1s ease'
@@ -155,7 +173,7 @@ const Layout = ({ children }) => {
     position: 'fixed',
     bottom: isMobile ? '15px' : '30px',
     left: isMobile ? '20px' : '50px',
-    color: '#fff',
+    color: 'var(--text)',
     fontSize: isMobile ? '12px' : '14px',
     zIndex: 100,
     cursor: 'pointer',
@@ -168,7 +186,7 @@ const Layout = ({ children }) => {
     <div 
       style={{ 
         minHeight: '100vh', 
-        background: '#000',
+        background: 'var(--bg)',
         position: 'relative',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
         overflowX: 'hidden',
@@ -188,25 +206,48 @@ const Layout = ({ children }) => {
           Vinod Oguboyina
         </div>
 
-        {/* Hamburger Menu (Mobile) */}
-        <div style={hamburgerStyle} onClick={() => setMenuOpen(!menuOpen)}>
-          <div style={{
-            ...hamburgerLineStyle,
-            transform: menuOpen ? 'rotate(45deg) translateY(6px)' : 'none'
-          }} />
-          <div style={{
-            ...hamburgerLineStyle,
-            opacity: menuOpen ? 0 : 1
-          }} />
-          <div style={{
-            ...hamburgerLineStyle,
-            transform: menuOpen ? 'rotate(-45deg) translateY(-6px)' : 'none'
-          }} />
+        <div style={{ display: isMobile ? 'flex' : 'none', alignItems: 'center', gap: '12px' }}>
+          {isMobile && (
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+              title={theme === 'dark' ? 'Light theme' : 'Dark theme'}
+              style={themeButtonStyle}
+            >
+              {theme === 'dark' ? <FiSun size={16} /> : <FiMoon size={16} />}
+            </button>
+          )}
+
+          {/* Hamburger Menu (Mobile) */}
+          <div style={hamburgerStyle} onClick={() => setMenuOpen(!menuOpen)}>
+            <div style={{
+              ...hamburgerLineStyle,
+              transform: menuOpen ? 'rotate(45deg) translateY(6px)' : 'none'
+            }} />
+            <div style={{
+              ...hamburgerLineStyle,
+              opacity: menuOpen ? 0 : 1
+            }} />
+            <div style={{
+              ...hamburgerLineStyle,
+              transform: menuOpen ? 'rotate(-45deg) translateY(-6px)' : 'none'
+            }} />
+          </div>
         </div>
 
         {/* Desktop Navigation */}
         <div style={desktopNavStyle}>
           <nav style={{ display: 'flex', gap: isTablet ? '20px' : '30px', alignItems: 'center' }}>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+              title={theme === 'dark' ? 'Light theme' : 'Dark theme'}
+              style={themeButtonStyle}
+            >
+              {theme === 'dark' ? <FiSun size={18} /> : <FiMoon size={18} />}
+            </button>
             <Link to="/work" style={navLinkStyle(location.pathname === '/work')}>
               Work
             </Link>
@@ -232,6 +273,15 @@ const Layout = ({ children }) => {
 
       {/* Mobile Menu */}
       <div style={mobileMenuStyle}>
+        <button
+          type="button"
+          onClick={toggleTheme}
+          aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+          title={theme === 'dark' ? 'Light theme' : 'Dark theme'}
+          style={{ ...themeButtonStyle, alignSelf: 'flex-start' }}
+        >
+          {theme === 'dark' ? <FiSun size={16} /> : <FiMoon size={16} />}
+        </button>
         <Link 
           to="/work" 
           style={navLinkStyle(location.pathname === '/work')}

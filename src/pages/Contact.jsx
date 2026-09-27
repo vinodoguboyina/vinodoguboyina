@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import resume from '../assets/Vinod_Oguboyina_Resume.pdf';
 
 const Contact = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [hoverResume, setHoverResume] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -10,6 +12,7 @@ const Contact = () => {
     }, 1000);
 
     const handleResize = () => setWindowWidth(window.innerWidth);
+
     window.addEventListener('resize', handleResize);
 
     return () => {
@@ -22,198 +25,233 @@ const Contact = () => {
   const isTablet = windowWidth > 768 && windowWidth <= 1024;
 
   const formatTime = (date) => {
-    return date.toLocaleTimeString('en-US', { 
-      hour: '2-digit', 
-      minute: '2-digit', 
+    return date.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
       second: '2-digit',
-      hour12: true 
+      hour12: true,
     });
   };
 
   return (
-    <div style={{ 
-      minHeight: '100vh',
-      background: '#000',
-      padding: isMobile ? '100px 20px 30px 20px' : isTablet ? '110px 35px 40px 35px' : '100px 50px 40px 50px',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      boxSizing: 'border-box',
-      width: '100%',
-      overflowX: 'hidden'
-    }}>
-      {/* Header Section */}
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        marginBottom: isMobile ? '40px' : isTablet ? '50px' : '60px',
-        paddingTop: isMobile ? '10px' : '20px',
-        borderTop: '1px solid #333'
-      }}>
-        <h1 style={{ 
-          color: '#fff', 
-          fontSize: isMobile ? '36px' : isTablet ? '64px' : '96px',
-          fontWeight: '400',
-          margin: 0,
-          lineHeight: '1.2',
-          wordBreak: 'break-word'
-        }}>
+    <div
+      style={{
+        minHeight: '100vh',
+        background: 'var(--bg)',
+        padding: isMobile
+          ? '100px 20px 30px'
+          : isTablet
+          ? '110px 35px 40px'
+          : '100px 50px 40px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        boxSizing: 'border-box',
+        width: '100%',
+        overflowX: 'hidden',
+      }}
+    >
+      {/* Header */}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'flex-start',
+          marginBottom: isMobile ? '40px' : '60px',
+          paddingTop: isMobile ? '10px' : '20px',
+          borderTop: '1px solid var(--border-strong)',
+        }}
+      >
+        <h1
+          style={{
+            color: 'var(--text)',
+            fontSize: isMobile ? '36px' : isTablet ? '64px' : '96px',
+            fontWeight: '400',
+            margin: 0,
+            lineHeight: '1.2',
+          }}
+        >
           Get in touch ↓
         </h1>
       </div>
 
-      {/* Contact Information Section */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        maxWidth: '1400px',
-        marginBottom: isMobile ? '40px' : '30px',
-        flexDirection: isMobile ? 'column' : 'row',
-        gap: isMobile ? '40px' : '0',
-        width: '100%'
-      }}>
-        {/* Left Side - Location */}
+      {/* Contact Info */}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          maxWidth: '1400px',
+          marginBottom: isMobile ? '40px' : '30px',
+          flexDirection: isMobile ? 'column' : 'row',
+          gap: isMobile ? '40px' : '0',
+        }}
+      >
+        {/* Left */}
         <div>
-          <p style={{
-            color: '#666',
-            fontSize: isMobile ? '13px' : isTablet ? '14px' : '16px',
-            margin: '0 0 10px 0'
-          }}>
+          <p
+            style={{
+              color: 'var(--text-muted)',
+              fontSize: isMobile ? '13px' : '16px',
+              marginBottom: '10px',
+            }}
+          >
             Currently located in
           </p>
-          <p style={{
-            color: '#666',
-            fontSize: isMobile ? '13px' : isTablet ? '14px' : '16px',
-            margin: 0
-          }}>
+
+          <p
+            style={{
+              color: 'var(--text-muted)',
+              fontSize: isMobile ? '13px' : '16px',
+            }}
+          >
             Bengaluru, Karnataka
           </p>
         </div>
 
-        {/* Right Side - Social Links */}
+        {/* Right */}
         <div style={{ textAlign: isMobile ? 'left' : 'right' }}>
-          <div style={{ marginBottom: isMobile ? '15px' : '20px' }}>
-            <a 
-              href="https://linkedin.com/in/vinod-oguboyina-939994267" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ 
-                color: '#fff', 
-                fontSize: isMobile ? '24px' : isTablet ? '30px' : '36px',
-                textDecoration: 'none',
-                display: 'block',
-                marginBottom: isMobile ? '8px' : '12px'
-              }}
-            >
-              LinkedIn
-            </a>
-          </div>
-          <div style={{ marginBottom: isMobile ? '15px' : '20px' }}>
-            <a 
-              href="https://github.com/vinodoguboyina" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ 
-                color: '#fff', 
-                fontSize: isMobile ? '24px' : isTablet ? '30px' : '36px',
-                textDecoration: 'none',
-                display: 'block',
-                marginBottom: isMobile ? '8px' : '12px'
-              }}
-            >
-              GitHub
-            </a>
-          </div>
-         
-          <div>
-            <a 
-              href="https://web-aura.github.io" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ 
-                color: '#fff', 
-                fontSize: isMobile ? '24px' : isTablet ? '30px' : '36px',
-                textDecoration: 'none',
-                display: 'block'
-              }}
-            >
-              Web Aura
-            </a>
-          </div>
+          <a
+            href="https://linkedin.com/in/vinod-oguboyina-939994267"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: 'var(--text)',
+              fontSize: isMobile ? '24px' : '36px',
+              textDecoration: 'none',
+              display: 'block',
+              marginBottom: '12px',
+            }}
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/vinodoguboyina"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: 'var(--text)',
+              fontSize: isMobile ? '24px' : '36px',
+              textDecoration: 'none',
+              display: 'block',
+              marginBottom: '12px',
+            }}
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://web-aura.github.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: 'var(--text)',
+              fontSize: isMobile ? '24px' : '36px',
+              textDecoration: 'none',
+              display: 'block',
+              marginBottom: '25px',
+            }}
+          >
+            Web Aura
+          </a>
+
+          {/* Resume Download */}
+          <a
+            href={resume}
+            download="Vinod_Oguboyina_Resume.pdf"
+            onMouseEnter={() => setHoverResume(true)}
+            onMouseLeave={() => setHoverResume(false)}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              padding: isMobile ? '12px 20px' : '14px 24px',
+              border: '1px solid var(--border)',
+              borderRadius: '999px',
+              color: 'var(--text)',
+              textDecoration: 'none',
+              fontSize: isMobile ? '14px' : '15px',
+              letterSpacing: '1px',
+              background: hoverResume ? 'var(--text)' : 'transparent',
+              color: hoverResume ? 'var(--bg)' : 'var(--text)',
+              transition: 'all .3s ease',
+              transform: hoverResume ? 'translateY(-3px)' : 'translateY(0)',
+            }}
+          >
+            ↓ Download Resume
+          </a>
         </div>
       </div>
 
-      {/* Email Handle Section */}
-      <div style={{
-        textAlign: 'center',
-        marginBottom: isMobile ? '30px' : '20px',
-        flex: '1',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: isMobile ? '0' : '-40px',
-        padding: isMobile ? '20px 0' : '0'
-      }}>
-        <a 
+      {/* Email */}
+      <div
+        style={{
+          textAlign: 'center',
+          flex: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginTop: isMobile ? '0' : '-40px',
+        }}
+      >
+        <a
           href="mailto:vinodoguboyina123@gmail.com"
           style={{
-            color: '#fff',
+            color: 'var(--text)',
             fontSize: isMobile ? '28px' : isTablet ? '48px' : '72px',
             fontWeight: '400',
             textDecoration: 'none',
             letterSpacing: isMobile ? '-1px' : '-2px',
-            wordBreak: 'break-word',
-            display: 'block',
-            padding: isMobile ? '0 10px' : '0'
           }}
         >
           @vinodoguboyina
         </a>
       </div>
 
-      {/* Footer Info */}
-      <div style={{
-        paddingTop: '10px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: isMobile ? 'flex-start' : 'center',
-        marginTop: 'auto',
-        marginBottom: isMobile ? '20px' : '30px',
-        flexDirection: isMobile ? 'column' : 'row',
-        gap: isMobile ? '15px' : '0',
-        width: '100%'
-      }}>
-        <p style={{
-          color: '#666',
-          fontSize: isMobile ? '9px' : '11px',
-          textTransform: 'uppercase',
-          letterSpacing: isMobile ? '1px' : '2px',
-          margin: 0,
-          fontWeight: 'bold'
-        }}>
+      {/* Footer */}
+      <div
+        style={{
+          paddingTop: '10px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: isMobile ? 'flex-start' : 'center',
+          flexDirection: isMobile ? 'column' : 'row',
+          gap: isMobile ? '15px' : '0',
+          marginBottom: isMobile ? '20px' : '30px',
+        }}
+      >
+        <p
+          style={{
+            color: 'var(--text-muted)',
+            fontSize: isMobile ? '9px' : '11px',
+            letterSpacing: '2px',
+            textTransform: 'uppercase',
+            fontWeight: 'bold',
+            margin: 0,
+          }}
+        >
           Thank you for visiting my creative space
         </p>
-        
-        <p style={{
-          color: '#666',
-          fontSize: isMobile ? '9px' : '11px',
-          margin: 0,
-          letterSpacing: '1px',
-          fontWeight: 'bold',
-          order: isMobile ? 3 : 2
-        }}>
-          It's {formatTime(currentTime).toLowerCase()} 
+
+        <p
+          style={{
+            color: 'var(--text-muted)',
+            fontSize: isMobile ? '9px' : '11px',
+            fontWeight: 'bold',
+            margin: 0,
+          }}
+        >
+          It's {formatTime(currentTime).toLowerCase()}
         </p>
 
-        <p style={{
-          color: '#666',
-          fontSize: isMobile ? '9px' : '11px',
-          margin: 0,
-          fontWeight: 'bold',
-          wordBreak: 'break-word',
-          order: isMobile ? 2 : 3
-        }}>
+        <p
+          style={{
+            color: 'var(--text-muted)',
+            fontSize: isMobile ? '9px' : '11px',
+            fontWeight: 'bold',
+            margin: 0,
+          }}
+        >
           {isMobile ? (
             <>
               vinodoguboyina123@gmail.com

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import videounscreen from '../assets/video-unscreen.gif';
+import portrait from '../assets/n1.png';
+import { useTheme } from '../context/ThemeContext';
 
 const Home = () => {
+  const { theme } = useTheme();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -12,133 +14,215 @@ const Home = () => {
 
   const isMobile = windowWidth <= 768;
   const isTablet = windowWidth > 768 && windowWidth <= 1024;
-  const isDesktop = windowWidth > 1024;
-
-  const containerStyle = {
-    position: 'relative',
-    width: '100%',
-    minHeight: 'calc(100vh - 80px)',
-    background: '#000',
-    overflow: 'hidden',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  };
-
-  const imageStyle = {
-    position: 'absolute',
-    top: isMobile ? '35%' : isTablet ? '38%' : '40%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    height: isMobile ? '40vh' : isTablet ? '55vh' : '65vh',
-    width: 'auto',
-    maxWidth: isMobile ? '90%' : '100%',
-    objectFit: 'contain',
-    zIndex: 5
-  };
-
-  const textContainerStyle = {
-    position: 'absolute',
-    top: isMobile ? '70%' : isTablet ? '80%' : '85%',
-    left: isMobile ? '50%' : '52%',
-    transform: 'translateX(-50%)',
-    display: 'flex',
-    alignItems: 'center',
-    gap: isMobile ? '20px' : isTablet ? '40px' : '60px',
-    zIndex: 4,
-    flexDirection: isMobile ? 'column' : 'row',
-    width: isMobile ? '90%' : 'auto'
-  };
-
-  const yearTextStyle = {
-    fontSize: isMobile ? '36px' : isTablet ? '50px' : '70px',
-    fontWeight: '300',
-    color: 'rgba(255, 255, 255, 0.2)',
-    pointerEvents: 'none',
-    letterSpacing: isMobile ? '8px' : isTablet ? '10px' : '12px',
-    fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-    lineHeight: '1',
-    userSelect: 'none'
-  };
-
-  const portfolioTextStyle = {
-    fontSize: isMobile ? '36px' : isTablet ? '50px' : '70px',
-    fontWeight: '300',
-    color: '#fff',
-    pointerEvents: 'none',
-    letterSpacing: isMobile ? '1px' : '2px',
-    fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-    lineHeight: '1',
-    userSelect: 'none'
-  };
-
-  const feedStyle = {
-    position: 'absolute',
-    bottom: isMobile ? '3%' : '5%',
-    left: isMobile ? '50%' : '4%',
-    transform: isMobile ? 'translateX(-50%)' : 'none',
-    color: '#fff',
-    fontSize: isMobile ? '14px' : '16px',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    fontFamily: 'Arial, sans-serif',
-    zIndex: 10,
-    animation: 'bounce 2s infinite'
-  };
-
-  const arrowStyle = {
-    fontSize: isMobile ? '18px' : '22px',
-    animation: 'pulse 1.5s infinite',
-    display: 'inline-block'
-  };
 
   return (
-    <div style={containerStyle}>
+    <div
+      style={{
+        width: '100%',
+        height: isMobile ? 'auto' : 'calc(100vh - 80px)',
+        minHeight: isMobile ? 'calc(100vh - 60px)' : 'calc(100vh - 80px)',
+        background: 'var(--bg)',
+        display: 'flex',
+        alignItems: 'center',
+        boxSizing: 'border-box',
+        padding: isMobile ? '28px 20px 40px' : isTablet ? '0 35px' : '0 50px',
+        overflow: 'hidden',
+        position: 'relative',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+      }}
+    >
+      <div
+        style={{
+          width: '100%',
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: isMobile ? '8px' : '40px'
+        }}
+      >
+        <div style={{ maxWidth: isMobile ? '100%' : '580px' }}>
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              margin: '0 0 24px 0',
+              lineHeight: '1'
+            }}
+          >
+            <span
+              style={{
+                width: '7px',
+                height: '7px',
+                borderRadius: '50%',
+                background: 'var(--accent)',
+                flexShrink: 0,
+                display: 'block'
+              }}
+            />
+            <p
+              style={{
+                margin: 0,
+                color: 'var(--text-muted)',
+                fontSize: '13px',
+                fontWeight: '600',
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                lineHeight: '1'
+              }}
+            >
+              Full Stack Cloud Engineer
+            </p>
+          </div>
+
+          <h1
+            style={{
+              margin: 0,
+              color: 'var(--text)',
+              fontSize: isMobile ? '40px' : isTablet ? '60px' : '76px',
+              fontWeight: '600',
+              letterSpacing: '-0.045em',
+              lineHeight: '1'
+            }}
+          >
+            Vinod Oguboyina
+          </h1>
+
+          <p
+            style={{
+              margin: isMobile ? '20px 0 0' : '26px 0 0',
+              color: 'color-mix(in srgb, var(--text) 85%, transparent)',
+              fontSize: isMobile ? '19px' : '23px',
+              fontWeight: '500',
+              letterSpacing: '-0.02em',
+              lineHeight: '1.45',
+              maxWidth: '440px'
+            }}
+          >
+            Full-stack engineer building production systems — web, mobile, cloud, and AI.
+          </p>
+
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              margin: '30px 0 0',
+              lineHeight: '1'
+            }}
+          >
+            <span
+              style={{
+                width: '20px',
+                height: '1px',
+                background: 'var(--border-strong)',
+                display: 'block'
+              }}
+            />
+            <p
+              style={{
+                margin: 0,
+                color: 'var(--text-muted)',
+                fontSize: '14px',
+                letterSpacing: '0.02em',
+                lineHeight: '1'
+              }}
+            >
+              Bengaluru
+            </p>
+          </div>
+        </div>
+
+        <img
+          src={portrait}
+          alt="Vinod Oguboyina"
+          style={{
+            height: isMobile ? '280px' : 'min(68vh, 620px)',
+            width: 'auto',
+            maxWidth: isMobile ? '240px' : '42vw',
+            objectFit: 'contain',
+            objectPosition: 'center bottom',
+            display: 'block',
+            flexShrink: 0,
+            userSelect: 'none',
+            background: theme === 'light' ? '#111' : 'transparent',
+            borderRadius: theme === 'light' ? '20px' : '0'
+          }}
+        />
+      </div>
+
+      {/* Scroll Down Indicator */}
+      {!isMobile && (
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '32px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '10px',
+            cursor: 'pointer',
+            animation: 'scrollBounce 2s ease-in-out infinite'
+          }}
+          onClick={() =>
+            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
+          }
+        >
+          <p
+            style={{
+              margin: 0,
+              color: 'var(--text-muted)',
+              fontSize: '11px',
+              fontWeight: '600',
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase'
+            }}
+          >
+            Scroll
+          </p>
+          <svg
+            width="18"
+            height="28"
+            viewBox="0 0 18 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="1"
+              y="1"
+              width="16"
+              height="26"
+              rx="8"
+              stroke="var(--border-strong)"
+              strokeWidth="1.5"
+            />
+            <circle cx="9" cy="8" r="2.5" fill="var(--accent)">
+              <animate
+                attributeName="cy"
+                values="8;16;8"
+                dur="1.8s"
+                repeatCount="indefinite"
+              />
+              <animate
+                attributeName="opacity"
+                values="1;0.3;1"
+                dur="1.8s"
+                repeatCount="indefinite"
+              />
+            </circle>
+          </svg>
+        </div>
+      )}
+
       <style>{`
-        @keyframes bounce {
-          0%, 20%, 50%, 80%, 100% {
-            transform: ${isMobile ? 'translateX(-50%)' : 'none'} translateY(0);
-          }
-          40% {
-            transform: ${isMobile ? 'translateX(-50%)' : 'none'} translateY(-10px);
-          }
-          60% {
-            transform: ${isMobile ? 'translateX(-50%)' : 'none'} translateY(-5px);
-          }
-        }
-        
-        @keyframes pulse {
-          0% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          50% {
-            opacity: 0.6;
-            transform: translateY(3px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        @keyframes scrollBounce {
+          0%, 100% { transform: translateX(-50%) translateY(0); }
+          50% { transform: translateX(-50%) translateY(8px); }
         }
       `}</style>
-      <img
-        src={videounscreen}
-        alt="Portfolio animation"
-        style={imageStyle}
-      />
-
-      <div style={textContainerStyle}>
-        <div style={yearTextStyle}>2026</div>
-        <div style={portfolioTextStyle}>Portfolio</div>
-      </div>
-
-      <div style={feedStyle}>
-        Feed
-        <span style={arrowStyle}>↓</span>
-      </div>
     </div>
   );
 };

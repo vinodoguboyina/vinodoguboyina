@@ -7,13 +7,22 @@ import {
   FaMobile, 
   FaDocker, 
   FaGit, 
+  FaGithub,
   FaBluetooth,
-  FaAws
+  FaAws,
+  FaLinux,
+  FaUsers,
+  FaBrain,
+  FaCogs,
+  FaShieldAlt,
+  FaTerminal
 } from 'react-icons/fa';
 import { 
   SiFastapi, 
   SiPostgresql, 
   SiMysql,
+  SiMongodb,
+  SiRedis,
   SiPostman, 
   SiAndroid, 
   SiIos,
@@ -22,8 +31,11 @@ import {
   SiJavascript,
   SiKubernetes,
   SiGitlab,
-  SiNginx
+  SiNginx,
+  SiExpo,
+  SiLangchain
 } from 'react-icons/si';
+import { VscAzure } from 'react-icons/vsc';
 import { TbTestPipe } from 'react-icons/tb';
 
 const Profile = () => {
@@ -64,31 +76,101 @@ const Profile = () => {
 
   const technicalSkills = [
     { 
+      category: 'Backend & APIs', 
+      icon: <FaPython />,
+      skills: [
+        { name: 'Python', icon: <FaPython /> },
+        { name: 'FastAPI', icon: <SiFastapi /> },
+        { name: 'RESTful APIs', icon: <SiFastapi /> },
+        { name: 'JWT Auth', icon: <FaShieldAlt /> },
+        { name: 'Microservices', icon: <FaCogs /> }
+      ] 
+    },
+    { 
       category: 'Frontend Development', 
       icon: <FaReact />,
       skills: [
         { name: 'React.js', icon: <FaReact /> },
-        { name: 'React Native', icon: <FaReact /> },
         { name: 'HTML', icon: <SiHtml5 /> },
         { name: 'CSS', icon: <SiCss3 /> },
         { name: 'JavaScript', icon: <SiJavascript /> }
       ] 
     },
     { 
-      category: 'Backend Development', 
-      icon: <FaPython />,
+      category: 'Mobile Development', 
+      icon: <FaMobile />,
       skills: [
-        { name: 'Python', icon: <FaPython /> },
-        { name: 'FastAPI', icon: <SiFastapi /> },
-        { name: 'RESTful APIs', icon: <SiFastapi /> }
+        { name: 'React Native', icon: <FaReact /> },
+        { name: 'Expo', icon: <SiExpo /> },
+        { name: 'Android', icon: <SiAndroid /> },
+        { name: 'iOS', icon: <SiIos /> },
+        { name: 'Bluetooth Low Energy', icon: <FaBluetooth /> }
       ] 
     },
     { 
-      category: 'Database', 
+      category: 'Databases', 
       icon: <FaDatabase />,
       skills: [
         { name: 'PostgreSQL', icon: <SiPostgresql /> },
+        { name: 'MongoDB', icon: <SiMongodb /> },
+        { name: 'Redis', icon: <SiRedis /> },
         { name: 'MySQL', icon: <SiMysql /> }
+      ] 
+    },
+    { 
+      category: 'Cloud Platforms', 
+      icon: <FaAws />,
+      skills: [
+        { name: 'AWS', icon: <FaAws /> },
+        { name: 'EC2', icon: <FaAws /> },
+        { name: 'S3', icon: <FaAws /> },
+        { name: 'RDS', icon: <FaAws /> },
+        { name: 'Lambda', icon: <FaAws /> },
+        { name: 'API Gateway', icon: <FaAws /> },
+        { name: 'SES', icon: <FaAws /> },
+        { name: 'CloudWatch', icon: <FaAws /> },
+        { name: 'Azure', icon: <VscAzure /> },
+        { name: 'Azure Functions', icon: <VscAzure /> },
+        { name: 'Azure SQL', icon: <VscAzure /> },
+        { name: 'Blob Storage', icon: <VscAzure /> },
+        { name: 'Azure Monitor', icon: <VscAzure /> },
+        { name: 'App Insights', icon: <VscAzure /> }
+      ] 
+    },
+    { 
+      category: 'DevOps & Infrastructure', 
+      icon: <FaDocker />,
+      skills: [
+        { name: 'Git', icon: <FaGit /> },
+        { name: 'GitHub', icon: <FaGithub /> },
+        { name: 'Docker', icon: <FaDocker /> },
+        { name: 'Nginx', icon: <SiNginx /> },
+        { name: 'Kubernetes', icon: <SiKubernetes /> },
+        { name: 'CI/CD', icon: <FaGit /> },
+        { name: 'Linux', icon: <FaLinux /> },
+        { name: 'Shell Scripting', icon: <FaTerminal /> },
+        { name: 'GitLab', icon: <SiGitlab /> }
+      ] 
+    },
+    { 
+      category: 'AI Technologies', 
+      icon: <FaBrain />,
+      skills: [
+        { name: 'RAG', icon: <FaBrain /> },
+        { name: 'LLM Integration', icon: <FaBrain /> },
+        { name: 'Generative AI', icon: <FaBrain /> },
+        { name: 'LangChain', icon: <SiLangchain /> },
+        { name: 'LangGraph', icon: <SiLangchain /> },
+        { name: 'Chatbots', icon: <FaBrain /> }
+      ] 
+    },
+    { 
+      category: 'Leadership', 
+      icon: <FaUsers />,
+      skills: [
+        { name: 'Team Leadership', icon: <FaUsers /> },
+        { name: 'Requirements Gathering', icon: <FaUsers /> },
+        { name: 'Solution Architecture', icon: <FaCogs /> }
       ] 
     },
     { 
@@ -100,40 +182,13 @@ const Profile = () => {
         { name: 'Load Testing', icon: <TbTestPipe /> },
         { name: 'API Testing (Postman)', icon: <SiPostman /> },
       ] 
-    },
-   
-    { 
-      category: 'DevOps & Cloud', 
-      icon: <FaAws />,
-      skills: [
-        { name: 'AWS', icon: <FaAws /> },
-        { name: 'Docker', icon: <FaDocker /> },
-        { name: 'Kubernetes', icon: <SiKubernetes /> },
-        { name: 'CI/CD', icon: <FaGit /> },
-        { name: 'GitLab', icon: <SiGitlab /> },
-        { name: 'Nginx', icon: <SiNginx /> },
-        { name: 'AWS RDS', icon: <FaAws /> },
-        { name: 'EC2', icon: <FaAws /> },
-        { name: 'ECR', icon: <FaAws /> },
-        { name: 'ECS', icon: <FaAws /> }
-      ] 
-    },
-    { 
-      category: 'Mobile Development', 
-      icon: <FaMobile />,
-      skills: [
-        { name: 'React Native', icon: <FaReact /> },
-        { name: 'Android', icon: <SiAndroid /> },
-        { name: 'iOS', icon: <SiIos /> },
-        { name: 'Bluetooth Low Energy', icon: <FaBluetooth /> }
-      ] 
     }
   ];
 
   return (
     <div style={{ 
       minHeight: '100vh',
-      background: '#000',
+      background: 'var(--bg)',
       padding: isMobile ? '100px 20px 50px 20px' : isTablet ? '110px 35px 50px 35px' : '120px 50px 50px 50px',
       boxSizing: 'border-box',
       width: '100%',
@@ -146,11 +201,11 @@ const Profile = () => {
         alignItems: 'flex-start',
         marginBottom: isMobile ? '50px' : isTablet ? '70px' : '100px',
         paddingTop: isMobile ? '20px' : '40px',
-        borderTop: '1px solid #333',
+        borderTop: '1px solid var(--border-strong)',
         position: 'relative'
       }}>
         <h1 style={{ 
-          color: '#fff', 
+          color: 'var(--text)', 
           fontSize: isMobile ? '48px' : isTablet ? '64px' : '80px',
           fontWeight: '400',
           margin: 0,
@@ -165,7 +220,7 @@ const Profile = () => {
           right: 0,
           width: '100%',
           height: '1px',
-          background: '#333'
+          background: 'var(--border-strong)'
         }}></div>
       </div>
 
@@ -182,7 +237,7 @@ const Profile = () => {
         {/* Left Side - Name and Title */}
         <div style={{ flex: 1 }}>
         <h2 style={{ 
-            color: '#fff', 
+            color: 'var(--text)', 
             fontSize: isMobile ? '32px' : isTablet ? '40px' : '48px', 
             fontWeight: '400',
             margin: '0 0 15px 0',
@@ -192,12 +247,12 @@ const Profile = () => {
             Vinod Oguboyina
           </h2>
           <p style={{ 
-            color: '#666', 
+            color: 'var(--text-muted)', 
             fontSize: isMobile ? '16px' : isTablet ? '18px' : '20px', 
             fontWeight: '300',
             margin: 0
           }}>
-            Full Stack Software Engineer
+            Full Stack Cloud Engineer
           </p>
         </div>
 
@@ -228,7 +283,7 @@ const Profile = () => {
         maxWidth: '1400px'
       }}>
         <h2 style={{ 
-          color: '#fff', 
+          color: 'var(--text)', 
           fontSize: isMobile ? '20px' : isTablet ? '22px' : '24px', 
           fontWeight: '400',
           marginBottom: isMobile ? '30px' : isTablet ? '40px' : '50px',
@@ -241,7 +296,7 @@ const Profile = () => {
           <div key={index} style={{
             paddingBottom: isMobile ? '25px' : isTablet ? '32px' : '40px',
             marginBottom: isMobile ? '25px' : isTablet ? '32px' : '40px',
-            borderBottom: index !== experience.length - 1 ? '1px solid #222' : 'none',
+            borderBottom: index !== experience.length - 1 ? '1px solid var(--border)' : 'none',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-start',
@@ -250,7 +305,7 @@ const Profile = () => {
           }}>
             <div style={{ flex: 1 }}>
               <h3 style={{ 
-                color: '#fff', 
+                color: 'var(--text)', 
                 fontSize: isMobile ? '20px' : isTablet ? '24px' : '28px', 
                 fontWeight: '400',
                 margin: '0 0 12px 0'
@@ -258,7 +313,7 @@ const Profile = () => {
                 {exp.company}
               </h3>
               <p style={{ 
-                color: '#888', 
+                color: 'var(--text-soft)', 
                 fontSize: isMobile ? '15px' : isTablet ? '16px' : '18px',
                 margin: '0 0 8px 0'
               }}>
@@ -271,7 +326,7 @@ const Profile = () => {
                 flexWrap: 'wrap'
               }}>
                 <span style={{
-                  color: '#666',
+                  color: 'var(--text-muted)',
                   fontSize: isMobile ? '10px' : '12px',
                   letterSpacing: '2px',
                   textTransform: 'uppercase'
@@ -279,7 +334,7 @@ const Profile = () => {
                   {exp.type}
                 </span>
                 <span style={{
-                  color: '#667eea',
+                  color: 'var(--accent)',
                   fontSize: isMobile ? '10px' : '12px',
                   letterSpacing: '1px'
                 }}>
@@ -288,7 +343,7 @@ const Profile = () => {
               </div>
             </div>
             <div style={{ 
-              color: '#666', 
+              color: 'var(--text-muted)', 
               fontSize: isMobile ? '13px' : isTablet ? '14px' : '16px',
               textAlign: isMobile ? 'left' : 'right',
               minWidth: isMobile ? 'auto' : '200px'
@@ -305,7 +360,7 @@ const Profile = () => {
         maxWidth: '1400px'
       }}>
         <h2 style={{ 
-          color: '#fff', 
+          color: 'var(--text)', 
           fontSize: isMobile ? '20px' : isTablet ? '22px' : '24px', 
           fontWeight: '400',
           marginBottom: isMobile ? '30px' : isTablet ? '40px' : '50px',
@@ -329,14 +384,14 @@ const Profile = () => {
               }}>
                 <span style={{ 
                   fontSize: isMobile ? '18px' : '20px', 
-                  color: '#667eea',
+                  color: 'var(--accent)',
                   display: 'flex',
                   alignItems: 'center'
                 }}>
                   {category.icon}
                 </span>
                 <h3 style={{ 
-                  color: '#888', 
+                  color: 'var(--text-soft)', 
                   fontSize: isMobile ? '13px' : isTablet ? '14px' : '16px',
                   fontWeight: '400',
                   margin: 0,
@@ -353,11 +408,11 @@ const Profile = () => {
               }}>
                 {category.skills.map((skill, idx) => (
                   <span key={idx} style={{
-                    color: '#fff',
+                    color: 'var(--text)',
                     fontSize: isMobile ? '13px' : '15px',
                     padding: isMobile ? '6px 12px' : '8px 16px',
-                    background: 'rgba(102, 126, 234, 0.1)',
-                    border: '1px solid rgba(102, 126, 234, 0.3)',
+                    background: 'var(--accent-bg)',
+                    border: '1px solid var(--accent-border)',
                     borderRadius: '4px',
                     display: 'flex',
                     alignItems: 'center',
@@ -383,7 +438,7 @@ const Profile = () => {
       {/* Contact Info */}
       <div style={{
         paddingTop: isMobile ? '30px' : isTablet ? '40px' : '50px',
-        borderTop: '1px solid #222'
+        borderTop: '1px solid var(--border)'
       }}>
         <div style={{
           display: 'flex',
@@ -395,7 +450,7 @@ const Profile = () => {
         }}>
           <div>
             <p style={{ 
-              color: '#666', 
+              color: 'var(--text-muted)', 
               fontSize: isMobile ? '13px' : isTablet ? '14px' : '16px',
               margin: '0 0 10px 0',
               wordBreak: 'break-word'
@@ -403,7 +458,7 @@ const Profile = () => {
               vinodoguboyina123@gmail.com
             </p>
             <p style={{ 
-              color: '#666', 
+              color: 'var(--text-muted)', 
               fontSize: isMobile ? '13px' : isTablet ? '14px' : '16px',
               margin: 0
             }}>
@@ -412,18 +467,18 @@ const Profile = () => {
           </div>
           <div style={{ textAlign: isMobile ? 'left' : 'right' }}>
             <p style={{ 
-              color: '#666', 
+              color: 'var(--text-muted)', 
               fontSize: isMobile ? '13px' : isTablet ? '14px' : '16px',
               margin: '0 0 10px 0'
             }}>
              
             </p>
             <p style={{ 
-              color: '#666', 
+              color: 'var(--text-muted)', 
               fontSize: isMobile ? '13px' : isTablet ? '14px' : '16px',
               margin: 0
             }}>
-              <a href="https://web-aura.github.io" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none' }}>
+              <a href="https://web-aura.github.io" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
                 web-aura.github.io
               </a>
             </p>

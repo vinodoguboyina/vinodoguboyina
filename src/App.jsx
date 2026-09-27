@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import Layout from './components/Layout';
+import { ThemeProvider } from './context/ThemeContext';
 import Home from './pages/Home';
 import Work from './pages/Work';
 import Profile from './pages/Profile';
@@ -31,6 +32,7 @@ function ScrollToSection() {
 
 function App() {
   return (
+    <ThemeProvider>
     <Router>
       {/* listens to route changes and scrolls to matching section */}
       <ScrollToSection />
@@ -56,6 +58,7 @@ function App() {
         </div>
       </Layout>
     </Router>
+    </ThemeProvider>
   );
 }
 
